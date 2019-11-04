@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Melding xmlns="http://schema.brreg.no/postmottak/henvendelse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="852528ff-c8d5-4059-8a36-ec9a210f38c6" tjeneste="intef" tjenestehandling="svarmelding" versjon="4.0" xsi:schemaLocation="http://schema.brreg.no/postmottak/henvendelse melding_4.0.xsd">
+  <Mottaker id="910731734" idType="Organisasjonsnummer"/>
+  <Avsender id="974760673" idType="Organisasjonsnummer"/>
+  <Referanse referanse="ea8b56c3-085a-4a4c-90da-5794e92bfc16" referanseType="HenvendelseReferanse"/>
+  <Referanse referanse="ea8b56c3-085a-4a4c-90da-5794e92bfc16" referanseType="MeldingsReferanse"/>
+  <Innhold>
+    <Data format="XML">&lt;Applikasjonskvittering xmlns="http://schema.brreg.no/postmottak/applikasjonskvittering"&gt;&lt;Status&gt;Rejected&lt;/Status&gt;&lt;StatusTekst&gt;Følgende vedlegg skulle vært med, men er ikke lastet opp: 
+STIF
+VEDT
+PAAR
+ELVA
+&lt;/StatusTekst&gt;&lt;StatusKode&gt;305&lt;/StatusKode&gt;&lt;MeldingsReferanse&gt;ea8b56c3-085a-4a4c-90da-5794e92bfc16&lt;/MeldingsReferanse&gt;&lt;HenvendelsesReferanse&gt;ea8b56c3-085a-4a4c-90da-5794e92bfc16&lt;/HenvendelsesReferanse&gt;&lt;AvsendersReferanse&gt;ea8b56c3-085a-4a4c-90da-5794e92bfc16&lt;/AvsendersReferanse&gt;&lt;/Applikasjonskvittering&gt;</Data>
+  </Innhold>
+</Melding>

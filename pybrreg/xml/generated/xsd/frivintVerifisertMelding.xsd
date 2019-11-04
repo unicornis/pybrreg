@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schema.brreg.no/postmottak/frivintVerifisertMelding" targetNamespace="http://schema.brreg.no/postmottak/frivintVerifisertMelding" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="SDO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SignedObject" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Base64-encoded content</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Signatures" type="Signatures" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Signatures">
+		<xs:sequence>
+			<xs:element name="SignatureRecord" type="SignatureRecord" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SignatureRecord">
+		<xs:sequence>
+			<xs:element name="SignedObjectHash" type="SignedObjectHash" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Authentication" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Base64-encoded signed SAML assertion</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RecordSeal" type="RecordSeal" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Hash of SignedObjectHash, Authentication and pre-shared key</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SignedObjectHash">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="algorithm" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="SHA-256"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RecordSeal">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="algorithm" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="SHA-512"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

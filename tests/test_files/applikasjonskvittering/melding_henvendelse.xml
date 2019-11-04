@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Melding xmlns="http://schema.brreg.no/postmottak/henvendelse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="57c35fc5-34a3-4f27-b3e4-31db90d6e08b" tjeneste="brpostmottak" tjenestehandling="svarmelding" versjon="4.0" xsi:schemaLocation="http://schema.brreg.no/postmottak/henvendelse melding_4.0.xsd">
+  <Mottaker id="910731734" idType="Organisasjonsnummer"/>
+  <Avsender id="974760673" idType="Organisasjonsnummer"/>
+  <Referanse referanse="6185bdd3-07ea-4788-b240-f7da281e3cdc" referanseType="MeldingsReferanse"/>
+  <Innhold>
+    <Data format="XML">&lt;Applikasjonskvittering xmlns="http://schema.brreg.no/postmottak/applikasjonskvittering"&gt;&lt;Status&gt;Rejected&lt;/Status&gt;&lt;StatusTekst&gt;Feil ved validering av konvolutt: cvc-elt.1: Cannot find the declaration of element 'ns1:Melding'.&lt;/StatusTekst&gt;&lt;StatusKode&gt;200&lt;/StatusKode&gt;&lt;MeldingsReferanse&gt;6185bdd3-07ea-4788-b240-f7da281e3cdc&lt;/MeldingsReferanse&gt;&lt;/Applikasjonskvittering&gt;</Data>
+  </Innhold>
+</Melding>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 4 (x64) (http://www.altova.com) by Geir Eidheim (Bronnoysundregistrene) -->
+<xs:schema xmlns="basic.brreg.no" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="basic.brreg.no" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0">
+	<xs:simpleType name="stGUID">
+		<xs:restriction base="xs:token">
+			<xs:pattern value="[A-Za-z0-9._-]{32,36}@?[A-Za-z0-9.-]{0,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stID">
+		<xs:annotation>
+			<xs:documentation>GUID</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="stGUID"/>
+	</xs:simpleType>
+	<xs:complexType name="ctAdresseID">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="id" type="stTekst64" use="required">
+					<xs:annotation>
+						<xs:documentation>Fritekst: Orgnr, fnr, kundenr, formatert tekststreng, mm</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="idType" type="stTekst32" use="required">
+					<xs:annotation>
+						<xs:documentation>Forteller formatet på ID</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ctEksternReferanse">
+		<xs:attribute name="referanse" type="stTekst64" use="required">
+			<xs:annotation>
+				<xs:documentation>Fritekst: URI, UUID, orgnr, formatert tekststreng, mm</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="referanseType" type="stTekst32" use="required">
+			<xs:annotation>
+				<xs:documentation>Kan være meldingsreferanse, avsenderreferanse, mm</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ctDokumentReferanse">
+		<xs:attribute name="referanse" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Fritekst: URI, UUID, formatert tekststreng, mm</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="referanseFormat" type="stTekst32">
+			<xs:annotation>
+				<xs:documentation>Forteller formatet på referansen</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="sjekksum" type="xs:hexBinary">
+			<xs:annotation>
+				<xs:documentation>Brukt for å oppbevare hashverdi (hvis den eksisterer) for den eksterne referansen</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:attributeGroup name="agReferanseType">
+		<xs:attribute name="id" type="stGUID" use="required">
+			<xs:annotation>
+				<xs:documentation>Skal være UUID</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="versjon" type="stTekst32" use="required">
+			<xs:annotation>
+				<xs:documentation>XSD versjon</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:simpleType name="stTekst32">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stTekst64">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stTekst128">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="128"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stTekst256">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stURL">
+		<xs:restriction base="xs:anyURI"/>
+	</xs:simpleType>
+	<xs:simpleType name="stAdressatType">
+		<xs:annotation>
+			<xs:documentation>F.eks. Banker, kommuner, rederier, etater, mm.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token"/>
+	</xs:simpleType>
+	<xs:attributeGroup name="agTjeneste">
+		<xs:attribute name="tjenestehandling" type="stTekst64" use="required">
+			<xs:annotation>
+				<xs:documentation>Unik identifikasjon på tjenestetype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="tjeneste" type="stTekst64" use="required">
+			<xs:annotation>
+				<xs:documentation>Registermelding, bestilling, brevsak, mm</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="ctAdressat">
+		<xs:sequence>
+			<xs:element name="AdressatType" type="ctAdresseID">
+				<xs:annotation>
+					<xs:documentation>F.eks. system, person, enhet, kunde, rolle, avdeling</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ctInnhold">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="Data">
+					<xs:annotation>
+						<xs:documentation>Inkludert i xml dokumentet</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="format" type="stTekst64" use="required">
+									<xs:annotation>
+										<xs:documentation>Angir om xml, pdf, doc, mm</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="DataRef" type="ctDokumentReferanse">
+					<xs:annotation>
+						<xs:documentation>Referanse til eksternt dokument (strukturert/ustrukturert)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

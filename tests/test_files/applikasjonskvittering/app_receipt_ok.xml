@@ -1,0 +1,6 @@
+<Applikasjonskvittering xmlns="http://schema.brreg.no/postmottak/applikasjonskvittering">
+    <Status>OK</Status>
+    <StatusTekst>Mottatt til behandling ÆØÅ</StatusTekst>
+    <StatusKode>201</StatusKode>
+    <MeldingsReferanse>e05f3b3a-68be-4ed9-81fc-9a8225cfa4d4</MeldingsReferanse>
+</Applikasjonskvittering>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<n1:Melding versjon="4.0" id="541c38f6-9cd2-49cc-902a-d97cc3c95b08" tjeneste="intef" tjenestehandling="vedtak" xsi:schemaLocation="http://schema.brreg.no/postmottak/melding.xsd" xmlns:n1="http://schema.brreg.no/postmottak/henvendelse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <n1:Mottaker id="999999999" idType="orgnr"/>
+    <n1:Avsender id="974760673" idType="orgnr"/>
+    <n1:Referanse referanse="a" referanseType="a"/>
+    <n1:Innhold>
+        <Data format="XML">&lt;IntegrasjonERFV_Vedtak xsi:schemaLocation='http://schema.brreg.no/intef/integrasjonERFV_Vedtak' xmlns='http://schema.brreg.no/intef/integrasjonERFV_Vedtak' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'&gt;&lt;SLsysId&gt;1001&lt;/SLsysId&gt;&lt;SLsysMeldingsId&gt;220517003&lt;/SLsysMeldingsId&gt;&lt;organisasjonsnummer&gt;988591653&lt;/organisasjonsnummer&gt;&lt;ERSaksstatus&gt;A&lt;/ERSaksstatus&gt;&lt;FVSaksstatus&gt;A&lt;/FVSaksstatus&gt;&lt;/IntegrasjonERFV_Vedtak&gt;</Data>
+    </n1:Innhold>
+</n1:Melding>

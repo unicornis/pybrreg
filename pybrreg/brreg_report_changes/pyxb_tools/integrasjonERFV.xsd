@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by Ann Inger Aune Kvanli (Bronnoysundregistrene) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schema.brreg.no/intef/integrasjonERFV" targetNamespace="http://schema.brreg.no/intef/integrasjonERFV" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="integrasjonERFV">
+		<xs:annotation>
+			<xs:documentation>Beskriver tjenesten integrasjon mot frivillighetsregisteret</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:header"/>
+				<xs:element ref="tns:melding" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SLsysId">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:totalDigits value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="SLsysMeldingsId">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="30"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="tns:sakstype"/>
+				<xs:element name="organisasjonsnummer" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:integer">
+							<xs:totalDigits value="9"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="tns:organisasjonsform"/>
+				<xs:element name="status">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ERstatus">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:length value="1"/>
+										<xs:enumeration value="N"/>
+										<xs:enumeration value="J"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="FVstatus">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:length value="1"/>
+										<xs:enumeration value="N"/>
+										<xs:enumeration value="J"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="MeldingsDato" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:date"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="melding">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:navn" minOccurs="0"/>
+				<xs:element ref="tns:stiftelsesdato" minOccurs="0"/>
+				<xs:element ref="tns:forretningsAdresse" minOccurs="0"/>
+				<xs:element ref="tns:postAdresse" minOccurs="0"/>
+				<xs:element ref="tns:hjemmeside" minOccurs="0"/>
+				<xs:element ref="tns:epost" minOccurs="0"/>
+				<xs:element ref="tns:telefon" minOccurs="0"/>
+				<xs:element ref="tns:mobil" minOccurs="0"/>
+				<xs:element ref="tns:telefaks" minOccurs="0"/>
+				<xs:element ref="tns:formaal" minOccurs="0"/>
+				<xs:element ref="tns:kontaktperson" minOccurs="0"/>
+				<xs:element ref="tns:dagligLeder" minOccurs="0"/>
+				<xs:element ref="tns:forretningsforer" minOccurs="0"/>
+				<xs:element ref="tns:styre" minOccurs="0"/>
+				<xs:element ref="tns:elektroniskVarslingsadresse" minOccurs="0"/>
+				<xs:element ref="tns:signatur" minOccurs="0"/>
+				<xs:element ref="tns:prokura" minOccurs="0"/>
+				<xs:element ref="tns:maalform" minOccurs="0"/>
+				<xs:element ref="tns:ansatte" minOccurs="0"/>
+				<xs:element ref="tns:nedleggelsesdato" minOccurs="0"/>
+				<xs:element ref="tns:grasrotandel" minOccurs="0"/>
+				<xs:element ref="tns:kategori" minOccurs="0" maxOccurs="3"/>
+				<xs:element ref="tns:kontonummer" minOccurs="0"/>
+				<xs:element ref="tns:meldepliktVedtekter" minOccurs="0"/>
+				<xs:element ref="tns:endringAvVedtekter" minOccurs="0"/>
+				<xs:element ref="tns:aarsregnskapLeveres" minOccurs="0"/>
+				<xs:element ref="tns:regnskapsperiode" minOccurs="0"/>
+				<xs:element name="opplysningUtgaar" minOccurs="0" maxOccurs="unbounded">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="FADR"/>
+							<xs:enumeration value="PADR"/>
+							<xs:enumeration value="IADR"/>
+							<xs:enumeration value="EPOS"/>
+							<xs:enumeration value="TFON"/>
+							<xs:enumeration value="TFAX"/>
+							<xs:enumeration value="MTLF"/>
+							<xs:enumeration value="KONT"/>
+							<xs:enumeration value="DAGL"/>
+							<xs:enumeration value="FFØR"/>
+							<xs:enumeration value="STYR"/>
+							<xs:enumeration value="SIGN"/>
+							<xs:enumeration value="PROK"/>
+							<xs:enumeration value="KTO"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="tns:vedlegg" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="signerer" maxOccurs="unbounded">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="11"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="nummer">
+		<xs:annotation>
+			<xs:documentation>felleselement for nummer som har like egenskaper</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="13"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:group name="styreGruppe">
+		<xs:sequence>
+			<xs:element name="rolle" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="tns:person" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element ref="tns:enhet" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+					<xs:attribute name="rolle" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="LEDE"/>
+								<xs:enumeration value="NEST"/>
+								<xs:enumeration value="MEDL"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:element name="person">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="fodselsnr">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="11"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="slektsnavn">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="50"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="kontaktperson">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="rolle" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="tns:person" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="rolletype" type="xs:string" use="required" fixed="KONT"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="KONT">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="aarsregnskapLeveres">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="skalLevere">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="1"/>
+							<xs:enumeration value="N"/>
+							<xs:enumeration value="J"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="FVRR">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="FV">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ansatte">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="harAnsatte">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="1"/>
+							<xs:enumeration value="N"/>
+							<xs:enumeration value="J"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="ARBG">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dagligLeder">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="rolle" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="tns:person" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="rolletype" type="xs:string" use="required" fixed="DAGL"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="DAGL">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="forretningsforer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="rolle" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="tns:person" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="tns:enhet" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="rolletype" type="xs:string" use="required" fixed="FFØR"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="FFØR">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="regnskapsperiode">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="datoMaaned">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="FVRP">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="FV">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="organisasjonsform">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="orgform" fixed="FLI">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="4"/>
+							<xs:enumeration value="FLI"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sakstype">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="hovedsakstype">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="1"/>
+							<xs:enumeration value="S"/>
+							<xs:enumeration value="E"/>
+							<xs:enumeration value="N"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="undersakstype">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="4"/>
+							<xs:enumeration value="SL"/>
+							<xs:enumeration value="SLFV"/>
+							<xs:enumeration value="EN"/>
+							<xs:enumeration value="NYFV"/>
+							<xs:enumeration value="NY"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="endringAvVedtekter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="endringMeldt">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="1"/>
+							<xs:enumeration value="J"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="EVDT">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="FV">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="epost">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="epostAdresse">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="150"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" type="xs:string" use="required" fixed="EPOS"/>
+			<xs:attribute name="register" type="xs:string" use="required" fixed="ER"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="formaal">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="formaalTekst" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string"/>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="FORM">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="forretningsAdresse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="adresse1" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="adresse2" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="adresse3" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="postnr" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="poststed" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="utenlandskPoststed" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="kommunenummer" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="kommune" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="landkode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="2"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="land">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="40"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" type="xs:string" use="required" fixed="FADR"/>
+			<xs:attribute name="register" type="xs:string" use="required" fixed="ER"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="meldepliktVedtekter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="skalRegistreres">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="1"/>
+							<xs:enumeration value="N"/>
+							<xs:enumeration value="J"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="MPVT">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="FV">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="grasrotandel">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="skalDelta">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="1"/>
+							<xs:enumeration value="N"/>
+							<xs:enumeration value="J"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infotype" use="required" fixed="GRDT">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="GRDT"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="FV">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="FV"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hjemmeside">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="url">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="150"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" type="xs:string" use="required" fixed="IADR"/>
+			<xs:attribute name="register" type="xs:string" use="required" fixed="ER"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="kategori">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="kode" type="xs:int"/>
+				<xs:element name="rangering" type="xs:short" default="1"/>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="KATG">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="KATG"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="FV">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="FV"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="kontonummer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="nummer">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="30"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="KTO">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="FV">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="maalform">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="maalformKode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="1"/>
+							<xs:enumeration value="N"/>
+							<xs:enumeration value="B"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="MÅL">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="navn">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="navn1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35" fixed="true"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="navn2" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="navn3" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="navn4" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="navn5" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" type="xs:string" use="required" fixed="NAVN"/>
+			<xs:attribute name="register" type="xs:string" use="required" fixed="ER"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mobil">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:nummer"/>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="MTLF">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="nedleggelsesdato">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:date">
+					<xs:attribute name="infoType" use="required" fixed="NDAT">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="NDAT"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="register" use="required" fixed="ER">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="ER"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="postAdresse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="adresse1" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="adresse2" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="adresse3" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="postnr" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="poststed" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="utenlandskPoststed" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="kommunenummer" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="kommune" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="landkode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="2"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="land">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="40"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" type="xs:string" use="required" fixed="PADR"/>
+			<xs:attribute name="register" type="xs:string" use="required" fixed="ER"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="prokura">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="prokuraTekst" minOccurs="0" maxOccurs="unbounded">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Styrets leder og nestleder hver for seg."/>
+							<xs:enumeration value="Daglig leder og styrets leder i fellesskap."/>
+							<xs:enumeration value="Styrets leder alene."/>
+							<xs:enumeration value="To styremedlemmer i fellesskap."/>
+							<xs:enumeration value="Styrets medlemmer hver for seg."/>
+							<xs:enumeration value="Daglig leder alene."/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="rolle" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="tns:person" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="rolletype" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="PROK"/>
+									<xs:enumeration value="POHV"/>
+									<xs:enumeration value="POFE"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="PROK">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="enhet">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="orgnr">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:totalDigits value="9"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="telefaks">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:nummer"/>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="TFAX">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="TFAX"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ER"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="telefon">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:nummer"/>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="TFON">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="vedlegg">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="vedleggsType" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="5"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="signatur">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="signaturTekst" minOccurs="0" maxOccurs="unbounded">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Styrets leder og ett styremedlem i fellesskap."/>
+							<xs:enumeration value="Daglig leder alene."/>
+							<xs:enumeration value="Styrets leder og nestleder hver for seg."/>
+							<xs:enumeration value="Styrets leder alene."/>
+							<xs:enumeration value="To styremedlemmer i fellesskap."/>
+							<xs:enumeration value="Daglig leder og styrets leder i fellesskap."/>
+							<xs:enumeration value="Styrets medlemmer hver for seg."/>
+							<xs:enumeration value="Styret i fellesskap."/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="rolle" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="tns:person" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="rolletype" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="SIGN"/>
+									<xs:enumeration value="SIHV"/>
+									<xs:enumeration value="SIFE"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="infoType" use="required" fixed="SIGN">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="stiftelsesdato">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:date">
+					<xs:attribute name="infoType" type="xs:string" use="required" fixed="STID"/>
+					<xs:attribute name="register" type="xs:string" use="required" fixed="ER"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="styre">
+		<xs:complexType>
+			<xs:group ref="tns:styreGruppe"/>
+			<xs:attribute name="infoType" use="required" fixed="STYR">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="register" use="required" fixed="ER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="elektroniskVarslingsadresse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="epostadresse" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="150"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="mobil" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="prefiks" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="1"/>
+										<xs:maxLength value="8"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="mobilnummer" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="1"/>
+										<xs:maxLength value="13"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

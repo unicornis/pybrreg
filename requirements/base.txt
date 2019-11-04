@@ -1,0 +1,5 @@
+PyXB==1.2.4
+xmltodict==0.10.2
+decorator==4.0.10
+validators==0.11.0
+

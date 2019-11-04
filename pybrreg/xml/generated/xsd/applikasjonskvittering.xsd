@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schema.brreg.no/postmottak/applikasjonskvittering" targetNamespace="http://schema.brreg.no/postmottak/applikasjonskvittering" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="Applikasjonskvittering">
+     <xs:annotation>
+         <xs:documentation>Beskriver kvittering som sendes til avsender</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="Status" nillable="false" minOccurs="1">
+               <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                     <xs:enumeration value="NotSet"/>
+                     <xs:enumeration value="OK"/>
+                     <xs:enumeration value="UnExpectedError"/>
+                     <xs:enumeration value="ValidationFailed"/>
+                     <xs:enumeration value="Rejected"/>
+                  </xs:restriction>
+               </xs:simpleType>
+            </xs:element>
+            <xs:element name="StatusTekst" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1" />
+            <xs:element name="StatusKode" type="xs:int" nillable="false" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="MeldingsReferanse" type="xs:string" nillable="false"/>
+            <xs:element name="HenvendelsesReferanse" type="xs:string" nillable="false" minOccurs="0" />
+            <xs:element name="AvsendersReferanse" type="xs:string" nillable="false" minOccurs="0" maxOccurs="1" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
+

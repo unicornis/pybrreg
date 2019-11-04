@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<n1:Melding xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:n1="http://schema.brreg.no/postmottak/henvendelse" versjon="a" id="f8016d88-72ef-4ea7-a23d-c326fd33b7c0" tjeneste="intef" tjenestehandling="vedtak" xsi:schemaLocation="http://schema.brreg.no/postmottak/henvendelse Melding_4.0.xsd">
+
+       <n1:Mottaker id="999999999" idType="a">orgnr</n1:Mottaker>
+
+       <n1:Avsender id="974760673" idType="a">orgnr</n1:Avsender>
+
+       <n1:Referanse referanse="a" referanseType="a"/>
+
+       <n1:Innhold>
+
+             <n1:Data format="xml">&lt;IntegrasjonERFV_Vedtak xsi:schemaLocation='http://schema.brreg.no/intef/integrasjonERFV_Vedtak' xmlns='http://schema.brreg.no/intef/integrasjonERFV_Vedtak' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'&gt;&lt;SLsysId&gt;1001&lt;/SLsysId&gt;&lt;SLsysMeldingsId&gt;220517003&lt;/SLsysMeldingsId&gt;&lt;organisasjonsnummer&gt;988591653&lt;/organisasjonsnummer&gt;&lt;ERSaksstatus&gt;A&lt;/ERSaksstatus&gt;&lt;FVSaksstatus&gt;A&lt;/FVSaksstatus&gt;&lt;/IntegrasjonERFV_Vedtak&gt;</n1:Data>
+
+       </n1:Innhold>
+
+       <n1:Vedlegg type="FVAVBR" navn="Avbrutt behandling">
+
+             <n1:Vedleggsdel sekvensnr="1" filnavn="20170000416650-001-2017022676.pdf">
+
+             <n1:DataRef referanse="20170000416650-001-2017022676.pdf" format="PDF" sjekksum="1D110F251BF75C7BD82B192FF7DF1F36"></n1:DataRef>
+
+             </n1:Vedleggsdel>
+
+       </n1:Vedlegg>
+
+       <n1:Vedlegg type="AVBR" navn="Avbrutt behandling">
+
+             <n1:Vedleggsdel sekvensnr="1" filnavn="20170000416650-001-2017022675.pdf">
+
+                    <n1:DataRef referanse="20170000416650-002-2017022675.pdf" format="PDF" sjekksum="335B4C63A941897F298810ED67E3DF5D"></n1:DataRef>
+
+             </n1:Vedleggsdel>
+
+       </n1:Vedlegg>
+
+</n1:Melding>

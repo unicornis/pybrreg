@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 sp1 (http://www.altova.com) by Tom Morten Einvik (Bronnoysundregistrene) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schema.brreg.no/intef/integrasjonERFV_Vedtak" targetNamespace="http://schema.brreg.no/intef/integrasjonERFV_Vedtak" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="IntegrasjonERFV_Vedtak">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SLsysId">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:totalDigits value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="SLsysMeldingsId">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="30"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="organisasjonsnummer">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="9"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="ERSaksstatus">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="FVSaksstatus">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

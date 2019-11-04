@@ -1,0 +1,5 @@
+<BrokerServiceRecipientList xmlns="http://schema.altinn.no/services/ServiceEngine/Broker/2015/06">
+    <Recipient>
+        <PartyNumber>910731718</PartyNumber>
+    </Recipient>
+</BrokerServiceRecipientList>

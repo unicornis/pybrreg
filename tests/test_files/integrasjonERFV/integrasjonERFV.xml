@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<integrasjonERFV xmlns="http://schema.brreg.no/intef/integrasjonERFV" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.brreg.no/intef/integrasjonERFV integrasjonERFV.xsd">
+    <header MeldingsDato="2015-10-13">
+        <SLsysId>1001</SLsysId>
+        <SLsysMeldingsId>a</SLsysMeldingsId>
+        <sakstype>
+            <hovedsakstype>N</hovedsakstype>
+            <undersakstype>NY</undersakstype>
+        </sakstype>
+        <organisasjonsform>
+            <orgform>FLI</orgform>
+        </organisasjonsform>
+        <status>
+            <ERstatus>J</ERstatus>
+            <FVstatus>J</FVstatus>
+        </status>
+    </header>
+    <melding>
+        <navn infoType="NAVN" register="ER">
+            <navn1>Nærøy Jakt og Fisk</navn1>
+        </navn>
+        <stiftelsesdato infoType="STID" register="ER">1920-09-09</stiftelsesdato>
+        <forretningsAdresse infoType="FADR" register="ER">
+            <adresse1>Testgata 5</adresse1>
+            <postnr>7970</postnr>
+            <poststed>Kolvereid</poststed>
+            <kommunenummer>1751</kommunenummer>
+            <kommune>Nærøy</kommune>
+            <landkode>NO</landkode>
+            <land>Norge</land>
+        </forretningsAdresse>
+        <hjemmeside infoType="IADR" register="ER">
+            <url>www.eksempel.no</url>
+        </hjemmeside>
+        <epost infoType="EPOS" register="ER">
+            <epostAdresse>post@eksempel.no</epostAdresse>
+        </epost>
+        <mobil infoType="MTLF" register="ER">
+            <nummer>99999999</nummer>
+        </mobil>
+        <formaal infoType="FORM" register="ER">
+            <formaalTekst>Idrettslag</formaalTekst>
+        </formaal>
+        <kontaktperson infoType="KONT" register="ER">
+            <rolle rolletype="KONT">
+                <person>
+                    <fodselsnr>17033900562</fodselsnr>
+                    <slektsnavn>Grimstad</slektsnavn>
+                </person>
+            </rolle>
+        </kontaktperson>
+        <styre infoType="STYR" register="ER">
+            <rolle rolle="LEDE">
+                <person>
+                    <fodselsnr>17033900562</fodselsnr>
+                    <slektsnavn>Grimstad</slektsnavn>
+                </person>
+            </rolle>
+            <rolle rolle="MEDL">
+                <person>
+                    <fodselsnr>17035600213</fodselsnr>
+                    <slektsnavn>Augestad</slektsnavn>
+                </person>
+            </rolle>
+        </styre>
+        <signatur infoType="SIGN" register="ER">
+            <signaturTekst>To styremedlemmer i fellesskap.</signaturTekst>
+            <rolle rolletype="SIFE">
+                <person>
+                    <fodselsnr>17035600213</fodselsnr>
+                    <slektsnavn>Augestad</slektsnavn>
+                </person>
+            </rolle>
+            <rolle rolletype="SIFE">
+                <person>
+                    <fodselsnr>17033900562</fodselsnr>
+                    <slektsnavn>Grimstad</slektsnavn>
+                </person>
+            </rolle>
+        </signatur>
+        <maalform infoType="MÅL" register="ER">
+            <maalformKode>B</maalformKode>
+        </maalform>
+        <ansatte infoType="ARBG" register="ER">
+            <harAnsatte>N</harAnsatte>
+        </ansatte>
+        <grasrotandel infotype="GRDT" register="FV">
+            <skalDelta>J</skalDelta>
+        </grasrotandel>
+        <kategori infoType="KATG" register="FV">
+            <kode>1200</kode>
+            <rangering>1</rangering>
+        </kategori>
+        <kontonummer infoType="KTO" register="FV">
+            <nummer>44670546397</nummer>
+        </kontonummer>
+        <meldepliktVedtekter infoType="MPVT" register="FV">
+            <skalRegistreres>N</skalRegistreres>
+        </meldepliktVedtekter>
+        <aarsregnskapLeveres infoType="FVRR" register="FV">
+            <skalLevere>J</skalLevere>
+        </aarsregnskapLeveres>
+        <regnskapsperiode infoType="FVRP" register="FV">
+            <datoMaaned>3112</datoMaaned>
+        </regnskapsperiode>
+        <vedlegg>
+            <vedleggsType>VEDT</vedleggsType>
+        </vedlegg>
+        <vedlegg>
+            <vedleggsType>STIF</vedleggsType>
+        </vedlegg>
+        <vedlegg>
+            <vedleggsType>PAAR</vedleggsType>
+        </vedlegg>
+        <vedlegg>
+            <vedleggsType>SGDK</vedleggsType>
+        </vedlegg>
+        <signerer>17033900562</signerer>
+    </melding>
+</integrasjonERFV>
